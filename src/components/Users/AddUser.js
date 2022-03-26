@@ -35,14 +35,9 @@ const AddUser = (props)=>{
         setError(0);
     }
 
-    if(error_state === 1){
-        return  <ErrorModal clearerror={removeError} title="An error occurred!" message="Something went wrong" rem={removeError}/>;
-       
-    }
-
-
     return(
-        <div>
+        <>
+        {error_state && <ErrorModal clearerror={removeError} title="An error occurred!" message="Something went wrong" rem={removeError}/>}
         <Container className={styles.input}>
         <form onSubmit={addUserHandler}>
             <label htmlFor="username"></label>
@@ -53,7 +48,7 @@ const AddUser = (props)=>{
         </form>
         </Container>
         
-        </div>
+        </>
         
     );
 }
